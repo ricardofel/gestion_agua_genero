@@ -15,7 +15,7 @@
             --text-gray: #4a5568;
             --bg-white: #ffffff;
             --border-color: #e2e8f0;
-            --corp-accent: #00a8cc; /* Color diferenciador*/
+            --corp-accent: #00a8cc; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,12 +51,12 @@
         .page-header {
             background-color: var(--corp-dark);
             color: white;
-            padding: 3rem 2rem;
+            padding: 2rem;
             text-align: center;
-            border-bottom: 4px solid var(--corp-accent); /* Detalle Técnico */
+            border-bottom: 4px solid var(--corp-accent); 
         }
-        .page-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-        .page-header p { color: #bdc3c7; max-width: 800px; margin: 0 auto; }
+        .page-header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .page-header p { color: #bdc3c7; max-width: 800px; margin: 0 auto; font-size: 0.9rem; }
 
         /* --- Dashboard Section --- */
         .dashboard-section {
@@ -64,10 +64,12 @@
             flex-grow: 1; 
             display: flex;
             justify-content: center;
+            /* Alineación al inicio para evitar estiramientos raros */
+            align-items: flex-start; 
             background-color: #f0f2f5; 
         }
         
-        /* --- CONTENEDOR SIN SCROLL HORIZONTAL --- */
+        /* --- CONTENEDOR SOLUCIÓN FINAL --- */
         .tableau-container {
             width: 100%; 
             max-width: 1200px; 
@@ -75,11 +77,12 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            
+            /* CORRECCIÓN TÉCNICA: Usamos block en lugar de flex */
+            display: block; 
             overflow: hidden; 
             padding: 0; 
-            
-            display: flex;
-            justify-content: center;
+            margin: 0 auto; /* Centrado automático */
         }
 
         /* Footer */
@@ -92,22 +95,9 @@
             margin-top: auto;
         }
 
-        /* --- CORRECCIÓN RESPONSIVE--- */
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center; /* Centrado */
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .nav-links {
-                flex-direction: row; /* En fila */
-                flex-wrap: wrap; /* Que bajen si no caben */
-                justify-content: center;
-                width: 100%;
-                gap: 15px;
-            }
+            .navbar { flex-direction: column; align-items: center; padding: 1rem; gap: 1rem; }
+            .nav-links { flex-direction: row; flex-wrap: wrap; justify-content: center; width: 100%; gap: 15px; }
         }
     </style>
 </head>
@@ -157,13 +147,28 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1765673407283');
                 var vizElement = divElement.getElementsByTagName('object')[0];
+                
+                // CORRECCIÓN "GHOST SPACE": Asegura que el objeto sea block para no dejar margen inferior
+                vizElement.style.display = 'block';
+                
+                // ANCHO: Siempre 100%
                 vizElement.style.width = '100%';
-                vizElement.style.height = '100%px'; 
+                
+                // ALTURA ADAPTABLE (Lógica Original):
+                // Si la pantalla es ancha (>800px), usa la altura completa de PC (3527px)
+                // Si es móvil, usa la altura compacta (2627px). 
+                // *Nota: Si en móvil te sigue faltando un gráfico, cambia '2627px' por '3300px' aquí abajo.
+                if (divElement.offsetWidth > 800) {
+                    vizElement.style.height = '3527px';
+                } else {
+                    vizElement.style.height = '3300px';
+                }
+
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);
             </script>
-            </div>
+        </div>
     </main>
 
     <footer class="footer">
