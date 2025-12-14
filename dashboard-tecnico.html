@@ -64,12 +64,11 @@
             flex-grow: 1; 
             display: flex;
             justify-content: center;
-            /* Alineación al inicio para evitar estiramientos raros */
-            align-items: flex-start; 
+            align-items: flex-start; /* Evita estiramientos verticales extraños */
             background-color: #f0f2f5; 
         }
         
-        /* --- CONTENEDOR SOLUCIÓN FINAL --- */
+        /* --- CONTENEDOR TÉCNICO --- */
         .tableau-container {
             width: 100%; 
             max-width: 1200px; 
@@ -78,11 +77,11 @@
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             
-            /* CORRECCIÓN TÉCNICA: Usamos block en lugar de flex */
+            /* Usamos block para control total de la altura interna */
             display: block; 
             overflow: hidden; 
             padding: 0; 
-            margin: 0 auto; /* Centrado automático */
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -148,20 +147,20 @@
                 var divElement = document.getElementById('viz1765673407283');
                 var vizElement = divElement.getElementsByTagName('object')[0];
                 
-                // CORRECCIÓN "GHOST SPACE": Asegura que el objeto sea block para no dejar margen inferior
+                // Evitamos márgenes extra del objeto
                 vizElement.style.display = 'block';
                 
-                // ANCHO: Siempre 100%
+                // Ancho siempre al 100%
                 vizElement.style.width = '100%';
                 
-                // ALTURA ADAPTABLE (Lógica Original):
-                // Si la pantalla es ancha (>800px), usa la altura completa de PC (3527px)
-                // Si es móvil, usa la altura compacta (2627px). 
-                // *Nota: Si en móvil te sigue faltando un gráfico, cambia '2627px' por '3300px' aquí abajo.
+                // ALTURAS EXACTAS SEGÚN TUS DATOS:
                 if (divElement.offsetWidth > 800) {
-                    vizElement.style.height = '3527px';
+                    // MODO PC: 3500px (Tu dato)
+                    vizElement.style.height = '3527px'; 
                 } else {
-                    vizElement.style.height = '3300px';
+                    // MODO MÓVIL: 2600px (Tu dato original)
+                    // Regresamos a este número porque 3300px generaba el espacio blanco.
+                    vizElement.style.height = '2627px'; 
                 }
 
                 var scriptElement = document.createElement('script');
