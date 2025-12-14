@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Social - Proyecto Agua & Género</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Estilos Generales --- */
+        :root {
+            --corp-dark: #0a2540;
+            --corp-primary: #0056b3;
+            --corp-light: #e8f0fe; 
+            --text-gray: #4a5568;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--corp-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-brand { font-size: 1.3rem; font-weight: 700; color: var(--corp-dark); text-decoration: none; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--corp-primary); }
+
+        /* Cabecera */
+        .page-header {
+            background-color: var(--corp-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .page-header p { color: #bdc3c7; max-width: 800px; margin: 0 auto; }
+
+        /* --- Dashboard Section --- */
+        .dashboard-section {
+            padding: 2rem 0; /* Quitamos padding lateral para dar más espacio */
+            flex-grow: 1; 
+            display: flex;
+            justify-content: center;
+            background-color: #f0f2f5; /* Un fondo gris muy suave para resaltar el dashboard */
+        }
+        
+        /* --- CONTENEDOR TABLEAU "SIN SCROLL" --- */
+        .tableau-container {
+            width: 100%; 
+            max-width: 1200px; /* Ancho máximo controlado */
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            
+            /* AQUÍ ESTÁ LA MAGIA: */
+            overflow: hidden; /* Oculta cualquier barra de scroll */
+            padding: 0; /* Sin relleno interno para aprovechar cada pixel */
+            
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--corp-dark);
+            color: #bdc3c7;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Proyecto Agua & Género</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="dashboard-social.html" class="active">Dashboard Social</a></li>
+            <li><a href="dashboard-tecnico.html">Mediciones Técnicas</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-header">
+        <h1>Análisis Social y de Género</h1>
+        <p>Visualización de datos sobre las 2.500 mujeres encuestadas, tiempos de acarreo y monitoras activas.</p>
+    </section>
+
+    <main class="dashboard-section">
+        <div class="tableau-container">
+            
+            <div class='tableauPlaceholder' id='viz1765668226402' style='position: relative'>
+                <noscript>
+                    <a href='#'>
+                        <img alt='analisis_social ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;an&#47;analisis_social_gestion_agua_genero&#47;analisis_social&#47;1_rss.png' style='border: none' />
+                    </a>
+                </noscript>
+                <object class='tableauViz' style='display:none;'>
+                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                    <param name='embed_code_version' value='3' /> 
+                    <param name='site_root' value='' />
+                    <param name='name' value='analisis_social_gestion_agua_genero&#47;analisis_social' />
+                    <param name='tabs' value='no' />
+                    <param name='toolbar' value='yes' />
+                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;an&#47;analisis_social_gestion_agua_genero&#47;analisis_social&#47;1.png' /> 
+                    <param name='animate_transition' value='yes' />
+                    <param name='display_static_image' value='yes' />
+                    <param name='display_spinner' value='yes' />
+                    <param name='display_overlay' value='yes' />
+                    <param name='display_count' value='yes' />
+                    <param name='language' value='es-ES' />
+                </object>
+            </div>
+            
+            <script type='text/javascript'>
+                var divElement = document.getElementById('viz1765668226402');
+                var vizElement = divElement.getElementsByTagName('object')[0];
+                
+                // FORZAR ANCHO AL 100% (Sin condicionales raros)
+                vizElement.style.width = '100%';
+                
+                // Mantenemos la altura vertical (puedes ajustar este número si sobra mucho espacio abajo)
+                vizElement.style.height = '3027px'; 
+
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            </script>
+            </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Proyecto Agua & Género. Datos simulados para fines académicos.</p>
+    </footer>
+
+</body>
+</html>

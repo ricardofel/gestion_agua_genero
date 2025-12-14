@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Agua & Género - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Variables de Color Empresarial --- */
+        :root {
+            --corp-dark: #0a2540;       /* Azul marino profundo */
+            --corp-primary: #0056b3;    /* Azul vibrante corporativo */
+            --corp-light: #e8f0fe;      /* Azul muy pálido */
+            --corp-accent: #00a8cc;     /* Cian apagado */
+            --text-gray: #4a5568;       /* Gris texto */
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--corp-dark);
+            line-height: 1.6;
+        }
+
+        /* --- Navbar Minimalista (Izquierda) --- */
+        .navbar {
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 3rem;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--corp-dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--corp-primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--corp-dark);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto 2rem auto; /* Reduje el margen inferior para acercar los botones */
+        }
+
+        /* --- NUEVOS ESTILOS PARA LOS BOTONES --- */
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem; /* Espacio antes de la imagen */
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        /* Botón Primario (Azul Relleno) */
+        .btn-primary {
+            background-color: var(--corp-primary);
+            color: white;
+            border: 2px solid var(--corp-primary);
+            box-shadow: 0 4px 6px rgba(0, 86, 179, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #004494;
+            border-color: #004494;
+            transform: translateY(-2px);
+        }
+
+        /* Botón Secundario (Borde Azul Oscuro) */
+        .btn-outline {
+            background-color: transparent;
+            color: var(--corp-dark);
+            border: 2px solid var(--corp-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--corp-dark);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Imagen Central --- */
+        .hero-image-container {
+            width: 100%;
+            max-width: 900px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra un poco más marcada */
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.9) contrast(1.1);
+        }
+
+        /* --- KPIs Grid --- */
+        .kpi-section {
+            padding: 4rem 2rem;
+            background-color: var(--bg-white);
+            margin-top: 2rem;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kpi-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--corp-primary);
+        }
+
+        .kpi-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--corp-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-technical .kpi-value {
+            color: var(--corp-accent);
+        }
+
+        .kpi-label {
+            font-size: 1rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--corp-dark);
+            color: #bdc3c7;
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer p {
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer {
+            font-size: 0.8rem;
+            color: #7f8c8d;
+            border-top: 1px solid #34495e;
+            padding-top: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; align-items: flex-start; padding: 1rem; gap: 1rem; }
+            .nav-links { flex-direction: column; width: 100%; gap: 10px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-image-container { height: 250px; }
+            .hero-buttons { flex-direction: column; width: 100%; gap: 1rem; }
+            .btn { width: 100%; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="nav-brand">Proyecto Agua & Género</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="dashboard-social.html">Dashboard Social</a></li>
+            <li><a href="dashboard-tecnico.html">Mediciones Técnicas</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Análisis de Estrés Hídrico y su Impacto Social</h1>
+        <p>Monitoreo técnico y social para la gestión equitativa de los recursos hídricos en comunidades rurales.</p>
+        
+        <div class="hero-buttons">
+            <a href="dashboard-social.html" class="btn btn-primary">Ver Dashboard Social</a>
+            <a href="dashboard-tecnico.html" class="btn btn-outline">Ver Mediciones Técnicas</a>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="img/mujer_acarreando_agua.jpg" alt="Mujer acarreando agua en zona rural">
+        </div>
+    </section>
+
+    <section class="kpi-section">
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-value">2.500</div>
+                <div class="kpi-label">Mujeres Encuestadas</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">2,6 h</div>
+                <div class="kpi-label">Promedio Acarreo Diario</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-value">734</div>
+                <div class="kpi-label">Monitoras Activas</div>
+            </div>
+
+            <div class="kpi-card kpi-technical">
+                <div class="kpi-value">65,19</div>
+                <div class="kpi-label">Nivel Promedio Tanque</div>
+            </div>
+            <div class="kpi-card kpi-technical">
+                <div class="kpi-value">0,3418</div>
+                <div class="kpi-label">Índice de Calidad Aceptable</div>
+            </div>
+            <div class="kpi-card kpi-technical">
+                <div class="kpi-value">0,026%</div>
+                <div class="kpi-label">Porcentaje Estrés Hídrico</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Proyecto de Investigación: Agua y Género en Ecuador.</p>
+        <p>Desarrollado para el análisis y mejora de la calidad de vida en comunidades indígenas.</p>
+        <p>Autores: Ricardo Espinosa y Juan Diego Guerrero</p>
+        <div class="disclaimer">
+            Nota Legal: Los datos presentados en este sitio web han sido generados mediante simulación (Python/PostgreSQL) con fines académicos y de demostración técnica. No representan mediciones en tiempo real.
+        </div>
+    </footer>
+
+</body>
+</html>
