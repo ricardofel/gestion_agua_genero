@@ -31,7 +31,7 @@
             line-height: 1.6;
         }
 
-        /* --- Navbar Minimalista (Izquierda) --- */
+        /* --- Navbar Minimalista --- */
         .navbar {
             background-color: var(--bg-white);
             border-bottom: 1px solid var(--border-color);
@@ -89,15 +89,15 @@
             font-size: 1.1rem;
             color: var(--text-gray);
             max-width: 700px;
-            margin: 0 auto 2rem auto; /* Reduje el margen inferior para acercar los botones */
+            margin: 0 auto 2rem auto;
         }
 
-        /* --- NUEVOS ESTILOS PARA LOS BOTONES --- */
+        /* --- Botones --- */
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 3rem; /* Espacio antes de la imagen */
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
 
@@ -111,7 +111,6 @@
             display: inline-block;
         }
 
-        /* Botón Primario (Azul Relleno) */
         .btn-primary {
             background-color: var(--corp-primary);
             color: white;
@@ -125,7 +124,6 @@
             transform: translateY(-2px);
         }
 
-        /* Botón Secundario (Borde Azul Oscuro) */
         .btn-outline {
             background-color: transparent;
             color: var(--corp-dark);
@@ -146,7 +144,7 @@
             margin: 0 auto;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* Sombra un poco más marcada */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
         .hero-image-container img {
@@ -227,13 +225,33 @@
             margin-top: 2rem;
         }
 
-        /* Responsive */
+        /* --- CORRECCIÓN RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; padding: 1rem; gap: 1rem; }
-            .nav-links { flex-direction: column; width: 100%; gap: 10px; }
+            .navbar {
+                flex-direction: column;
+                align-items: center; /* Centrado total */
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                /* AQUÍ ESTABA EL ERROR: Quitamos flex-direction: column */
+                flex-direction: row; 
+                flex-wrap: wrap; /* Permite que bajen si no caben, pero no fuerza lista */
+                justify-content: center;
+                width: 100%;
+                gap: 15px; /* Espacio cómodo para dedos */
+            }
+
             .hero h1 { font-size: 1.8rem; }
             .hero-image-container { height: 250px; }
-            .hero-buttons { flex-direction: column; width: 100%; gap: 1rem; }
+            
+            /* Botones del hero uno debajo del otro en móvil para que sean fáciles de tocar */
+            .hero-buttons { 
+                flex-direction: column; 
+                width: 100%; 
+                gap: 1rem; 
+            }
             .btn { width: 100%; text-align: center; }
         }
     </style>
@@ -248,6 +266,7 @@
             <li><a href="dashboard-tecnico.html">Mediciones Técnicas</a></li>
         </ul>
     </nav>
+    
 
     <section class="hero">
         <h1>Análisis de Estrés Hídrico y su Impacto Social</h1>
