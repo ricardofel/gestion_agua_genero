@@ -15,7 +15,7 @@
             --text-gray: #4a5568;
             --bg-white: #ffffff;
             --border-color: #e2e8f0;
-            --corp-accent: #00a8cc; /* Color diferenciador para lo técnico */
+            --corp-accent: #00a8cc; /* Color diferenciador*/
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -75,8 +75,6 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            
-            /* Bloqueamos el scroll horizontal */
             overflow: hidden; 
             padding: 0; 
             
@@ -94,7 +92,7 @@
             margin-top: auto;
         }
 
-        /* --- CORRECCIÓN RESPONSIVE (Igual que el Index) --- */
+        /* --- CORRECCIÓN RESPONSIVE--- */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -126,7 +124,7 @@
 
     <section class="page-header">
         <h1>Mediciones Técnicas y Calidad del Agua</h1>
-        <p>Monitoreo en tiempo real de niveles de tanque, sensores IoT e indicadores de calidad hídrica.</p>
+        <p>Sistematización de indicadores de nivel y calidad hídrica mediante monitoreo comunitario participativo, gestionado directamente por lideresas locales.</p>
     </section>
 
     <main class="dashboard-section">
@@ -159,13 +157,8 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1765673407283');
                 var vizElement = divElement.getElementsByTagName('object')[0];
-                
-                // CORRECCIÓN: Forzar ancho al 100% para evitar scroll horizontal
                 vizElement.style.width = '100%';
-                
-                // Usamos la altura que venía en tu código nuevo (es un dash muy largo)
                 vizElement.style.height = '3527px'; 
-
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);

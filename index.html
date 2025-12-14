@@ -225,7 +225,7 @@
             margin-top: 2rem;
         }
 
-        /* --- CORRECCIÓN RESPONSIVE PARA MÓVILES --- */
+        /* --- RESPONSIVE PARA MÓVILES --- */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -235,7 +235,6 @@
             }
 
             .nav-links {
-                /* AQUÍ ESTABA EL ERROR: Quitamos flex-direction: column */
                 flex-direction: row; 
                 flex-wrap: wrap; /* Permite que bajen si no caben, pero no fuerza lista */
                 justify-content: center;
