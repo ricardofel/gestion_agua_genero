@@ -146,20 +146,16 @@
             <script type='text/javascript'>
                 var divElement = document.getElementById('viz1765673407283');
                 var vizElement = divElement.getElementsByTagName('object')[0];
-                
-                // Evitamos márgenes extra del objeto
+
                 vizElement.style.display = 'block';
-                
-                // Ancho siempre al 100%
                 vizElement.style.width = '100%';
                 
-                // ALTURAS EXACTAS SEGÚN TUS DATOS:
+                // ALTURAS EXACTAS PARA MEJOR ADAPTACION:
                 if (divElement.offsetWidth > 800) {
-                    // MODO PC: 3500px (Tu dato)
+                    // MODO PC: 3500px
                     vizElement.style.height = '3527px'; 
                 } else {
-                    // MODO MÓVIL: 2600px (Tu dato original)
-                    // Regresamos a este número porque 3300px generaba el espacio blanco.
+                    // MODO MÓVIL: 2600px
                     vizElement.style.height = '2627px'; 
                 }
 
