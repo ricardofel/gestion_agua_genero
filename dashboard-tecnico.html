@@ -94,8 +94,22 @@
             margin-top: auto;
         }
 
+        /* --- CORRECCIÓN RESPONSIVE (Igual que el Index) --- */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1rem; }
+            .navbar {
+                flex-direction: column;
+                align-items: center; /* Centrado */
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: row; /* En fila */
+                flex-wrap: wrap; /* Que bajen si no caben */
+                justify-content: center;
+                width: 100%;
+                gap: 15px;
+            }
         }
     </style>
 </head>

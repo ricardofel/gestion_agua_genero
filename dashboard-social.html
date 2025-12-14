@@ -58,25 +58,24 @@
 
         /* --- Dashboard Section --- */
         .dashboard-section {
-            padding: 2rem 0; /* Quitamos padding lateral para dar más espacio */
+            padding: 2rem 0; 
             flex-grow: 1; 
             display: flex;
             justify-content: center;
-            background-color: #f0f2f5; /* Un fondo gris muy suave para resaltar el dashboard */
+            background-color: #f0f2f5; 
         }
         
         /* --- CONTENEDOR TABLEAU "SIN SCROLL" --- */
         .tableau-container {
             width: 100%; 
-            max-width: 1200px; /* Ancho máximo controlado */
+            max-width: 1200px; 
             background-color: white;
             border: 1px solid var(--border-color);
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             
-            /* AQUÍ ESTÁ LA MAGIA: */
-            overflow: hidden; /* Oculta cualquier barra de scroll */
-            padding: 0; /* Sin relleno interno para aprovechar cada pixel */
+            overflow: hidden; 
+            padding: 0; 
             
             display: flex;
             justify-content: center;
@@ -92,8 +91,22 @@
             margin-top: auto;
         }
 
+        /* --- CORRECCIÓN RESPONSIVE (Igual al Index y Técnico) --- */
         @media (max-width: 768px) {
-            .navbar { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1rem; }
+            .navbar {
+                flex-direction: column;
+                align-items: center; /* Centrado */
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-direction: row; /* En fila */
+                flex-wrap: wrap; /* Que bajen si no caben */
+                justify-content: center;
+                width: 100%;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -143,10 +156,10 @@
                 var divElement = document.getElementById('viz1765668226402');
                 var vizElement = divElement.getElementsByTagName('object')[0];
                 
-                // FORZAR ANCHO AL 100% (Sin condicionales raros)
+                // FORZAR ANCHO AL 100% 
                 vizElement.style.width = '100%';
                 
-                // Mantenemos la altura vertical (puedes ajustar este número si sobra mucho espacio abajo)
+                // Altura original
                 vizElement.style.height = '3027px'; 
 
                 var scriptElement = document.createElement('script');
